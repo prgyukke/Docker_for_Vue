@@ -1,0 +1,6 @@
+FROM node:8.9.4-alpine
+
+RUN apk update \
+ && apk add vim
+
+WORKDIR /var/www/app

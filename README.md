@@ -1,30 +1,48 @@
-# my-project
+# Docker_for_Vue
 
-> A Vue.js project
+## はじめに
+### 各バージョン
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+## 環境構築
+### 初回のみ
+```
+$ git clone git@github.com:prgyukke/Docker_for_Vue.git
+$ cd Docker_for_Vue
+$ docker-compose up -d --build
+# コンテナに入る
+$ docker exec -it docker_for_vue_node_1 /bin/ash
+# コンテナ上にて
+# npm install
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 2回目以降
+```
+$ docker-compose up
+# コンテナに入る
+$ docker exec -it docker_for_vue_node_1 /bin/ash
+# コンテナ上にて
+# npm install
+```
+
+## コンテナ上での操作
+### ホットリロード付きのビルトインサーバ
+`http://localhost:8080`で確認可能
+```
+# npm run dev
+```
+
+### ビルド
+`public`ディレクトリにビルドされる
+```
+# npm run build
+```
+
+### コンテナを抜ける際
+```
+# exit
+```
+
+### 開発終了時
+```
+$ docker-compose down
+```
